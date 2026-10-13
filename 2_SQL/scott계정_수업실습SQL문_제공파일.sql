@@ -1,9 +1,9 @@
 
 --  SQL문 주석문
-
+-- MySQL SQL 문서: https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/
 -- ////////////////////////////////////////////////////
 -- /////// SELECT 문 실습//////
-
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/select.html
 -- 1. 테이블내의 모든 데이터 보기
 
  use testdb;
@@ -70,6 +70,7 @@ FROM emp;
  
 -- ////////////////////////////////////////////////////
 -- /////// WHERE  실습//////
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/non-typed-operators.html
 
 SELECT empno, ename, job, deptno
 FROM emp
@@ -184,6 +185,7 @@ ORDER BY 3, 1 DESC;
 
  -- ////////////////////////////////////////////////////
 -- /////// 단일함수  실습//////
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/string-functions.html
 
  -- 1. 단일행함수 - 문자 데이터
 
@@ -273,6 +275,8 @@ SELECT REGEXP_SUBSTR('a1987b2765c3', '[0-9]+', 1, 2);     -- 2765
 SELECT REGEXP_SUBSTR('123Hello456', '[A-Za-z]+');         -- Hello
 
  -- 1. 단일행함수 - 수치 데이터
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/numeric-functions.html
+
 
 SELECT ROUND(45.678), ROUND(45.678, 2) , ROUND(45.678, -1);
 
@@ -291,6 +295,7 @@ SELECT FLOOR(7 + (RAND() * 5));  --  7 <= R < 12
 SELECT FLOOR(1 + RAND() * 10);   --  1 <= R < 11 
 
  -- 1. 단일행함수 - 날짜 데이터
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/date-and-time-functions.html
 
 SELECT SYSDATE(), NOW();
 
@@ -389,6 +394,7 @@ select '10',
 
  -- ////////////////////////////////////////////////////
 -- /////// 그룹함수  실습//////
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/aggregate-functions.html
 
 
 SELECT AVG(sal), MAX(sal), MIN(sal), SUM(sal)
@@ -463,6 +469,7 @@ ORDER BY SUM(sal) DESC;
 
  -- ////////////////////////////////////////////////////
 -- /////// 조인(JOIN)  실습//////
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/join.html
 
 
 SELECT empno, ename, dname
@@ -520,6 +527,7 @@ FROM emp e LEFT OUTER JOIN dept d ON e.deptno = d.deptno;
 
  -- ////////////////////////////////////////////////////
 -- /////// 서브쿼리(Subquery)  실습//////
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/subqueries.html
 
 SELECT empno, ename, job, sal
 FROM emp
@@ -677,6 +685,8 @@ select  e.deptno, sum(sal), ROUND(avg(sal)), count(*)
 
  -- ////////////////////////////////////////////////////
 -- ///////  DML  실습//////
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/sql-data-manipulation-statements.html
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/sql-transactional-statements.html
 
 -- auto commit 확인
  show variables like 'autocommit%';
@@ -745,6 +755,7 @@ VALUES (90, '인사과','서울') ON DUPLICATE KEY UPDATE loc='제주';
 
  -- ////////////////////////////////////////////////////
 -- ///////  DDL  실습//////
+-- https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/sql-data-definition-statements.html
 
 
 CREATE TABLE IF NOT EXISTS  dept_2
